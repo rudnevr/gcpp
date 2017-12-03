@@ -1,0 +1,31 @@
+caps:
+  d: winact(ff)
+  w: groupact(console)
+  e: winact(total comm)
+  r: groupact(jide)
+  t:
+    ifwinact(intellij): ^enter
+    ifwinact(gvim): ZZ
+    catchall: ^z
+  c: groupact(messenger)
+tab:
+  f:
+    a: !
+    s: "@"
+    d: #
+    f: $
+    g: "%"
+    h: ^
+    j: <
+    k: \*
+    l: >
+    \;: "_:"
+    z: \"
+    x: ;
+    c: "`"
+    v: ins
+    q: \'
+    w: {
+    e: }
+    r: [
+    t: ]

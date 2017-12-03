@@ -1,0 +1,6 @@
+shift:
+  ctrl:
+    c: bb
+    d: ee
+  f: xx
+x: aa

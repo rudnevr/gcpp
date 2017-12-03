@@ -1,0 +1,60 @@
+caps:
+  d: !bash ls -l
+  e: !find -name ""
+  j: !down
+  h: up
+  l: left
+
+tab-:
+  j name{specRegime} var{workOn} website{} winact{Firefox} winex{} group(msoffice) group(editor) os{} proc{} env{} pwd{} shell{}
+  j winex{Intellij} var{}:
+      h:
+    e:
+  d:
+    h:
+    e:
+ssd:
+
+
+
+j label(fa)
+j name(fa)
+j ame(fa)
+
+open|run|copy|paste|play|move|clic|act|set|send|lang|goto keymap|kill|insert|winsize
+
+/vim/intellij edit plugins
+daemon
+
+state management plugins (design interface)
+dashboard design
+
+communities
+
+//state management - mode,window,keystate
+//cache for hwnd, save and reload by trigger
+//reload
+//window size functions
+//hotstrings
+//logs
+//send input simulator and check
+
+//skins
+//api
+//tests
+
+MVP:
+conf model  >> go >> call api >> hook >> test hook
+
+next version: cross platf - rare keys - skins - plugins - editors (autocomplete/errors/dups/etc)
+
+maps, communities
+
+//auto-labeling
+//diagnostics: number of actions, empty spots
+
+short definition
+effective keymap
+codegen
+compilation
+test

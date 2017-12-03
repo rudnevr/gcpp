@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Customer.h"
+#include "PState.h"
 #include <windows.h>
 #include <string>
 #include <iostream>
@@ -8,14 +9,6 @@
 
 using namespace std;
 
-//state management - mode,window,keystate
-//cache for hwnd, save and reload by trigger
-//reload
-//window size functions
-//hotstrings
-//logs
-//send input simulator and check
-//
 
 extern "C" {
 #include "foo.h" //a C header, so wrap it in extern "C"
@@ -122,6 +115,15 @@ LRESULT CALLBACK HookProcedure2(int nCode, WPARAM wParam, LPARAM lParam) {
     }
     return CallNextHookEx(NULL, nCode, wParam, lParam);
 }
+
+Keys keys = NULL;
+PState pState = NULL;
+
+void createState() {
+    keys = Keys(GetAsyncKeyState(VK_CAPITAL), GetAsyncKeyState(VK_SHIFT), GetAsyncKeyState(VK_MENU),
+                GetAsyncKeyState(VK_SHIFT), GetAsyncKeyState(VK_CONTROL), GetAsyncKeyState(VK_LWIN));
+}
+
 
 int main() {
     cout << "startt" << endl;

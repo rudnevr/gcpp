@@ -1,7 +1,10 @@
-with open("t.yml", 'r') as conf:
+with open("test.yaml", 'r') as conf:
     content = conf.readlines()
 
-content = [x.strip('\n') for x in content]
+content = [x.rstrip("\n") for x in content if x.rstrip("\n")]
+
+assert len(content)==31
+
 tab = '  '
 
 def resolveKeymap(mapName):
@@ -34,7 +37,7 @@ for c in content:
     k = findKey(c)  # shift
     indent_level = indentLevel(c)
     if len(currentKey) == indent_level and previousVal:
-        raise Exception("error")
+        raise Exception("previous value wrong" + c)
     if previousVal:
         result["".join(currentKey)] = previousVal
     currentKey = currentKey[:indent_level]

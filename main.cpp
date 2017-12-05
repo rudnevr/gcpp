@@ -26,9 +26,9 @@ BOOL tab = FALSE;
 BOOL caps = FALSE;
 
 string mapCodeToText(int code) {
-    if (code == VK_F12) { return "IntelliJ"; }
-    if (code == VK_F1) { return "Firefox"; }
-    if (code == VK_F3) { return "Chrome"; }
+    if (code == VK_F12) { return "IntelliJ|CLion"; }
+    if (code == VK_F13) { return "Firefox"; }
+    if (code == VK_F14) { return "Chrome"; }
     if (code == VK_F4) { return "cmd"; }
     if (code == VK_F7) { return "MINGW"; }
     if (code == VK_F6) { return "Sky"; }
@@ -116,13 +116,11 @@ LRESULT CALLBACK HookProcedure2(int nCode, WPARAM wParam, LPARAM lParam) {
     return CallNextHookEx(NULL, nCode, wParam, lParam);
 }
 
-Keys keys = NULL;
-PState pState = NULL;
-
-void createState() {
-    keys = Keys(GetAsyncKeyState(VK_CAPITAL), GetAsyncKeyState(VK_SHIFT), GetAsyncKeyState(VK_MENU),
-                GetAsyncKeyState(VK_SHIFT), GetAsyncKeyState(VK_CONTROL), GetAsyncKeyState(VK_LWIN));
-}
+//
+//void createState() {
+//    keys = Keys(GetAsyncKeyState(VK_CAPITAL), GetAsyncKeyState(VK_SHIFT), GetAsyncKeyState(VK_MENU),
+//                GetAsyncKeyState(VK_SHIFT), GetAsyncKeyState(VK_CONTROL), GetAsyncKeyState(VK_LWIN));
+//}
 
 
 int main() {

@@ -44,5 +44,5 @@ for c in content:
     currentKey.append(k)
     previousVal = findVal(c)
 
-for key, value in result.iteritems():
+    for key, value in result.iteritems():
     print key + ": " + value

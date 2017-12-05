@@ -26,7 +26,7 @@ BOOL tab = FALSE;
 BOOL caps = FALSE;
 
 string mapCodeToText(int code) {
-    if (code == VK_F12) { return "IntelliJ|CLion"; }
+    if (code == VK_F12) { return "IntelliJ"; }
     if (code == VK_F13) { return "Firefox"; }
     if (code == VK_F14) { return "Chrome"; }
     if (code == VK_F4) { return "cmd"; }
@@ -48,14 +48,16 @@ BOOL CALLBACK enumWindowsProc(
     GetWindowTextA(hWnd, cWindow, length);
 //    printf("lparam %s\r\n", regex1);
 //    printf("cWindows %s\r\n", cWindow);
-    const string sout = string(cWindow);
+    const basic_string<char> &sout = string(cWindow);
     if (std::regex_match(sout, *regex1)) {
         cout << sout << std::endl;
-        if (hWnd != current) {
+
+//        if (hWnd != current) {
             cout << "match!" << std::endl;
-            current = hWnd;
-            return FALSE;
-        }
+//            current = hWnd;
+            SetForegroundWindow(hWnd);
+//            return FALSE;
+//        }
         return TRUE;
     }
     return TRUE;
@@ -124,7 +126,7 @@ LRESULT CALLBACK HookProcedure2(int nCode, WPARAM wParam, LPARAM lParam) {
 
 
 int main() {
-    cout << "startt" << endl;
+    cout << "start" << endl;
     current = GetForegroundWindow();
     KeyboardHook = SetWindowsHookEx(
             WH_KEYBOARD_LL,
